@@ -1,0 +1,32 @@
+<ion-content class="ion-padding auth-content">
+  <div class="auth-wrapper">
+    <h1>Assistant IA Perso</h1>
+    <p class="subtitle">Connecte-toi pour retrouver tes tâches et ton assistant.</p>
+
+    <ion-item>
+      <ion-input label="Nom d'utilisateur" labelPlacement="stacked" [(ngModel)]="username"
+                 placeholder="ton pseudo"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input label="Mot de passe" labelPlacement="stacked" type="password" [(ngModel)]="password"
+                 placeholder="••••••••"></ion-input>
+    </ion-item>
+
+    @if (errorMsg()) {
+      <p class="error">{{ errorMsg() }}</p>
+    }
+
+    <ion-button expand="block" (click)="submit()" [disabled]="loading()">
+      @if (loading()) {
+        <ion-spinner name="dots"></ion-spinner>
+      } @else {
+        Se connecter
+      }
+    </ion-button>
+
+    <p class="switch-link">
+      Pas encore de compte ? <a routerLink="/register">Créer un compte</a>
+    </p>
+  </div>
+</ion-content>

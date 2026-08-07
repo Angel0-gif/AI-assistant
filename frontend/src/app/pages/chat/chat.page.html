@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Assistant IA</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="chat-content">
+  @if (messages().length === 0) {
+    <div class="empty-state ion-text-center ion-padding">
+      <ion-icon name="chatbubbles-outline" size="large"></ion-icon>
+      <p>Pose-moi une question ou demande-moi de l'aide pour organiser ta journée.</p>
+    </div>
+  }
+
+  <div class="chat-messages">
+    @for (msg of messages(); track msg.id) {
+      <div class="bubble-row" [class.mine]="msg.role === 'user'">
+        <div class="bubble" [class.mine]="msg.role === 'user'">
+          {{ msg.content }}
+        </div>
+      </div>
+    }
+    @if (sending()) {
+      <div class="bubble-row">
+        <div class="bubble typing">
+          <ion-spinner name="dots"></ion-spinner>
+        </div>
+      </div>
+    }
+    <div #scrollArea></div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-item lines="none">
+      <ion-input
+        [(ngModel)]="draft"
+        placeholder="Écris ton message..."
+        (keyup.enter)="send()"
+        [disabled]="sending()">
+      </ion-input>
+      <ion-buttons slot="end">
+        <ion-button (click)="send()" [disabled]="sending() || !draft.trim()">
+          <ion-icon name="send" slot="icon-only"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+  </ion-toolbar>
+</ion-footer>

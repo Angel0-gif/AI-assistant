@@ -1,0 +1,37 @@
+<ion-content class="ion-padding auth-content">
+  <div class="auth-wrapper">
+    <h1>Créer un compte</h1>
+    <p class="subtitle">Quelques infos et c'est parti.</p>
+
+    <ion-item>
+      <ion-input label="Nom d'utilisateur" labelPlacement="stacked" [(ngModel)]="username"
+                 placeholder="ton pseudo"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input label="Email (optionnel)" labelPlacement="stacked" type="email" [(ngModel)]="email"
+                 placeholder="toi@exemple.com"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input label="Mot de passe" labelPlacement="stacked" type="password" [(ngModel)]="password"
+                 placeholder="8 caractères minimum"></ion-input>
+    </ion-item>
+
+    @if (errorMsg()) {
+      <p class="error">{{ errorMsg() }}</p>
+    }
+
+    <ion-button expand="block" (click)="submit()" [disabled]="loading()">
+      @if (loading()) {
+        <ion-spinner name="dots"></ion-spinner>
+      } @else {
+        Créer mon compte
+      }
+    </ion-button>
+
+    <p class="switch-link">
+      Déjà un compte ? <a routerLink="/login">Se connecter</a>
+    </p>
+  </div>
+</ion-content>

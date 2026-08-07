@@ -1,0 +1,121 @@
+@import "@ionic/angular/css/core.css";
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+:root {
+  --ion-color-primary: #5b5bf0;
+  --ion-color-primary-rgb: 91, 91, 240;
+  --ion-color-primary-shade: #5050d3;
+  --ion-color-primary-tint: #6b6bf2;
+}
+
+.auth-content {
+  --background: linear-gradient(180deg, #f4f4ff 0%, #ffffff 60%);
+}
+
+.auth-wrapper {
+  max-width: 420px;
+  margin: 10vh auto 0;
+
+  h1 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .subtitle {
+    color: var(--ion-color-medium);
+    margin-bottom: 24px;
+  }
+
+  ion-item {
+    margin-bottom: 12px;
+    --border-radius: 10px;
+    --background: #f7f7fb;
+  }
+
+  ion-button {
+    margin-top: 16px;
+  }
+
+  .error {
+    color: var(--ion-color-danger);
+    font-size: 0.9rem;
+  }
+
+  .switch-link {
+    text-align: center;
+    margin-top: 20px;
+    color: var(--ion-color-medium);
+
+    a {
+      color: var(--ion-color-primary);
+      font-weight: 600;
+      text-decoration: none;
+    }
+  }
+}
+
+.empty-state {
+  margin-top: 25vh;
+  color: var(--ion-color-medium);
+
+  ion-icon {
+    font-size: 48px;
+    margin-bottom: 12px;
+  }
+}
+
+ion-label.done h2 {
+  text-decoration: line-through;
+  color: var(--ion-color-medium);
+}
+
+/* Chat bubbles */
+.chat-content {
+  --background: #f4f4f8;
+}
+
+.chat-messages {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.bubble-row {
+  display: flex;
+  margin-bottom: 8px;
+
+  &.mine {
+    justify-content: flex-end;
+  }
+}
+
+.bubble {
+  max-width: 78%;
+  padding: 10px 14px;
+  border-radius: 16px;
+  background: #ffffff;
+  color: #1a1a1a;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+  white-space: pre-wrap;
+  line-height: 1.4;
+
+  &.mine {
+    background: var(--ion-color-primary);
+    color: white;
+  }
+
+  &.typing {
+    display: flex;
+    align-items: center;
+  }
+}
